@@ -32,7 +32,12 @@
   margin: 0 auto 0;
 }
 
-.task {
+.main__add {
+  margin: 1em 0;
+}
+
+.task__item,
+.task__add {
   width: 56%;
   display: inline-block;
   flex-grow: 1;
@@ -45,10 +50,10 @@
 /* for me it represents exact exception of reset action mentioned in task */
 ul {
   margin: 0;
-  padding: 0px;
+  padding: 0;
 }
 
-.task__item {
+.li {
   list-style: none;
 }
 
@@ -60,7 +65,7 @@ button {
 
 .button {
   background: none;
-  border: 0px;
+  border: 0;
   color: #888;
   font-size: 15px;
   width: 60px;
@@ -74,7 +79,7 @@ button {
 
 /* Heading */
 .heading,
-.label[for="new-task"] {
+.label.new-task {
   color: #333;
   font-weight: 700;
   font-size: 15px;
@@ -84,7 +89,7 @@ button {
   text-transform: uppercase;
 }
 
-.input[type="text"] {
+.input-text {
   margin: 0;
   font-size: 18px;
   line-height: 18px;
@@ -97,22 +102,22 @@ button {
   color: #888;
 }
 
-.input[type="text"]:focus {
+.input-text:focus {
   color: #333;
 }
 
 /* New Task */
-.label[for="new-task"] {
+.label.new-task {
   display: block;
   margin: 0 0 20px;
 }
 
-.input#new-task {
+.input.new-task {
   width: 318px;
 }
 
 /* Task list */
-.task__item {
+.task {
   overflow: hidden;
   padding: 20px 0;
   border-bottom: 1px solid #eee;
@@ -122,51 +127,72 @@ button {
   align-items: center;
 }
 
-.task__item>* {
+.task>* {
   vertical-align: middle;
 }
 
-.task__item>.input[type="checkbox"] {
+.task>.input-checkbox {
   margin: 0 10px;
 }
 
-.task__item>.label {
+.task>.label {
   padding-left: 10px;
   box-sizing: border-box;
   font-size: 18px;
   width: 226px;
 }
 
-.task__item>.input[type="text"] {
+.task>.input-text {
   width: 226px;
 }
 
-.button.delete img {
-  height: 2em;
+.delete {
+  display: flex;
+  place-content: center;
+}
+
+.delete__img {
+  background: url('./remove.svg') center/cover no-repeat;
+  min-height: 2em;
+  min-width: 2em;
   transform: rotateZ(45deg);
   transition: transform 200ms ease-in;
 }
 
-.button.delete img:hover {
+.delete__img:hover {
   transform: rotateZ(0);
 }
 
 /* Completed */
-.list#completed-tasks .label {
+.list.completed-tasks .label {
   text-decoration: line-through;
   color: #888;
 }
 
 /* Edit Task */
-.list .task__item .input[type="text"] {
+.list .task .input-text {
   display: none;
 }
 
-.list .task__item.edit-mode .input[type="text"] {
+.list .task.edit-mode .input-text {
   display: inline-block;
   width: 224px;
 }
 
-.list .task__item.edit-mode .label {
+.list .task.edit-mode .label {
   display: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
